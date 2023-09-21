@@ -1,0 +1,9 @@
+server {
+    server_name CHANGE_TO_DOMAIN_NAME;
+
+    proxy_set_header Host $host;
+
+    location / {
+        proxy_pass  http://CHANGE_TO_TARGET_HOST_AND_PORT$request_uri;
+    }
+}
