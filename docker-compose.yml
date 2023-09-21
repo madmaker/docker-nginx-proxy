@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d/:/etc/nginx/conf.d/
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    networks:
+      - nginx-proxy-net
+networks:
+  nginx-proxy-net:
+    external: true
